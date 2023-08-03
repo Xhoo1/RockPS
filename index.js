@@ -37,7 +37,7 @@ function theGame() {
     let isValidChoise = false;
 
     while (!isValidChoise) {
-      let playerSelection = prompt(
+       playerSelection = prompt(
         "Rock, Paper or Scissors:"
       ).toLocaleLowerCase();
       if (validChoices.includes(playerSelection)) {
