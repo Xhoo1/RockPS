@@ -4,47 +4,52 @@ function getComputerChoice() {
   let random = Math.floor(Math.random() * 3) + 1;
 
   if (random === 1) {
-    return "Rock";
+    return "rock";
   } else if (random === 2) {
-    return "Paper";
+    return "paper";
   } else {
-    return "Scissors";
+    return "scissors";
   }
 }
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection == computerSelection) {
-    return "Even";
-  } else if (playerSelection == "Rock" && computerSelection == "Scissors") {
+    return "even";
+  } else if (playerSelection == "rock" && computerSelection == "scissors") {
     return "Human Win, Rock beats Scissors";
-  } else if (playerSelection == "Paper" && computerSelection == "Rock") {
+  } else if (playerSelection == "paper" && computerSelection == "rock") {
     return "Human Win, Paper beats Rock";
-  } else if (playerSelection == "Scissors" && computerSelection == "Paper") {
+  } else if (playerSelection == "scissors" && computerSelection == "raper") {
     return "Human Win, Scissors beats Paper";
-  } else if ( computerSelection == "Rock" && playerSelection == "Scissors"){
-     return "Bot Win,Rock beats Scissors";
-  } else if(computerSelection == "Paper" && playerSelection == "Rock"){
+  } else if (computerSelection == "rock" && playerSelection == "scissors") {
+    return "Bot Win,Rock beats Scissors";
+  } else if (computerSelection == "paper" && playerSelection == "rock") {
     return "Bot Win, Paper beats Rock";
   } else {
     return "Bot Win, Scissors beats Paper";
   }
 }
 
+function theGame() {
+  const validChoices = ["rock", "paper", "scissors"];
 
+  for (let i = 0; i < 5; i++) {
+    let isValidChoise = false;
 
-function theGame(){
-  
-  for(let i = 0; i < 5; i ++) {
-    
-    const playerSelection = prompt()
+    while (!isValidChoise) {
+      let playerSelection = prompt(
+        "Rock, Paper or Scissors:"
+      ).toLocaleLowerCase();
+      if (validChoices.includes(playerSelection)) {
+        isValidChoise = true;
+      } else {
+        alert("Enter  Rock, Paper or Scissors no other words");
+      }
+    }
+
     const computerSelection = getComputerChoice();
-  alert(playRound(playerSelection, computerSelection));
-}
-
-
-
- 
-    
+    alert(playRound(playerSelection, computerSelection));
+  }
 }
 
 theGame();
