@@ -30,6 +30,9 @@ function playRound(playerSelection, computerSelection) {
   }
 }
 
+let humanWins = 0;
+let botWins = 0;
+
 function theGame() {
   const validChoices = ["rock", "paper", "scissors"];
 
@@ -37,9 +40,7 @@ function theGame() {
     let isValidChoise = false;
 
     while (!isValidChoise) {
-       playerSelection = prompt(
-        "Rock, Paper or Scissors:"
-      ).toLocaleLowerCase();
+      playerSelection = prompt("Rock, Paper or Scissors:").toLocaleLowerCase();
       if (validChoices.includes(playerSelection)) {
         isValidChoise = true;
       } else {
@@ -48,8 +49,16 @@ function theGame() {
     }
 
     const computerSelection = getComputerChoice();
-    alert(playRound(playerSelection, computerSelection));
+    const result = playRound(playerSelection, computerSelection);
+
+    alert(result);
+    if (result.includes("Bot Win")) {
+      botWins++;
+    } else if (result.includes("Human Win")) {
+      humanWins++;
+    }
   }
+  alert(`Final Scores:Human ${humanWins} Bot: ${botWins}`);
 }
 
 theGame();
