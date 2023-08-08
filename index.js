@@ -45,11 +45,11 @@ function playRound(playerSelection, computerSelection) {
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
     return `${playerName} win, Scissors beats Pape`;
   } else if (computerSelection === "rock" && playerSelection === "scissors") {
-    return "Bot Win,Rock beats Scissors";
+    return "Artificial Intelligence Win, Rock beats Scissors";
   } else if (computerSelection === "paper" && playerSelection === "rock") {
-    return "Bot Win, Paper beats Rock";
+    return "Artificial Intelligence Win, Paper beats Rock";
   } else {
-    return "Bot Win, Scissors beats Paper";
+    return "Artificial Intelligence Win, Scissors beats Paper";
   }
 }
 
@@ -67,21 +67,21 @@ function theGame(playerSelection) {
     const result = playRound(playerSelection, computerSelection);
 
   resultOne.textContent= `${result}`;
-    if (result.includes("Bot Win")) {
+    if (result.includes("Artificial Intelligence")) {
       botWins++;
     } else if (result.includes(playerName)) {
       humanWins++;
     }
   if ( humanWins === 5 || botWins === 5 ){
 
-    resultDom.textContent = `Final Scores:${playerName} ${humanWins} Bot: ${botWins}`;
+    resultDom.textContent = `Final Scores:${playerName} ${humanWins} || Artificial Intelligence: ${botWins}`;
     if (humanWins === 5 || botWins === 5) {
       setTimeout(() => {
         humanWins = 0;
         botWins = 0;
-        resultDom.textContent = "Scores: Human 0 Bot: 0";
+        resultDom.textContent = "Let the best Win!";
         resultOne.textContent = "New game started!";
-      }, 5000); // Wait for 2 seconds before resetting the game
+      }, 5000); // Wait for 5 seconds before resetting the game
     }
   }
 }
