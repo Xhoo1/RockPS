@@ -75,6 +75,7 @@ function theGame(playerSelection) {
   if ( humanWins === 5 || botWins === 5 ){
 
     resultDom.textContent = `Final Scores:${playerName} ${humanWins} || Artificial Intelligence: ${botWins}`;
+    resultDom.style.color = "red";
     if (humanWins === 5 || botWins === 5) {
       setTimeout(() => {
         humanWins = 0;
