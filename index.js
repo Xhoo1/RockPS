@@ -1,5 +1,10 @@
 // To provide a random number
 
+
+
+  let playerName = prompt("Enter:Your name:")
+
+
 function getComputerChoice() {
   let random = Math.floor(Math.random() * 3) + 1;
 
@@ -32,13 +37,13 @@ paperButton.addEventListener("click",()=> theGame("paper"));
 
 function playRound(playerSelection, computerSelection) {
   if (playerSelection == computerSelection) {
-    return "even";
+    return "Even, no one Wins";
   } else if (playerSelection === "rock" && computerSelection === "scissors") {
-    return "Human Win, Rock beats Scissors";
+    return `${playerName} Win, Rock beats Scissors`;
   } else if (playerSelection === "paper" && computerSelection === "rock") {
-    return "Human Win, Paper beats Rock";
+    return `${playerName} win, Paper beats Rock`;
   } else if (playerSelection === "scissors" && computerSelection === "paper") {
-    return "Human Win, Scissors beats Paper";
+    return `${playerName} win, Scissors beats Pape`;
   } else if (computerSelection === "rock" && playerSelection === "scissors") {
     return "Bot Win,Rock beats Scissors";
   } else if (computerSelection === "paper" && playerSelection === "rock") {
@@ -64,19 +69,19 @@ function theGame(playerSelection) {
   resultOne.textContent= `${result}`;
     if (result.includes("Bot Win")) {
       botWins++;
-    } else if (result.includes("Human Win")) {
+    } else if (result.includes(playerName)) {
       humanWins++;
     }
   if ( humanWins === 5 || botWins === 5 ){
 
-    resultDom.textContent = `Final Scores:Human ${humanWins} Bot: ${botWins}`;
+    resultDom.textContent = `Final Scores:${playerName} ${humanWins} Bot: ${botWins}`;
     if (humanWins === 5 || botWins === 5) {
       setTimeout(() => {
         humanWins = 0;
         botWins = 0;
         resultDom.textContent = "Scores: Human 0 Bot: 0";
         resultOne.textContent = "New game started!";
-      }, 2000); // Wait for 2 seconds before resetting the game
+      }, 5000); // Wait for 2 seconds before resetting the game
     }
   }
 }
